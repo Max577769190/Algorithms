@@ -28,12 +28,11 @@ int max_subarray1(int array[SIZE])
     for (int i = 0; i < SIZE; ++i) {
         for (int j = i; j < SIZE; ++j) {
             int result = 0;
-            for (int k = i; k <= j; ++k) {
+            //赘余
+            for (int k = i; k <= j; ++k)
                 result += array[k];
-            }
-            if (max < result) {
+            if (max < result)
                 max = result;
-            }
             cout << "[ " << i << ", " << j << " ] " << result << endl;
         }
     }
