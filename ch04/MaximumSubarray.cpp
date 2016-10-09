@@ -7,6 +7,7 @@ using std::endl;
 
 int max_subarray1(int []);
 int max_subarray2(int []);
+int max_subarray3(int []);
 
 
 int main()
@@ -19,7 +20,7 @@ int main()
 }
 
 /**
- * 暴力求解, 不简洁
+ * 暴力求解1.0, 不简洁
  */
 int max_subarray1(int array[SIZE])
 {
@@ -41,7 +42,7 @@ int max_subarray1(int array[SIZE])
 }
 
 /**
- * 暴力求解2 简洁
+ * 暴力求解2.0, 简洁
  */
 int max_subarray2(int array[])
 {
@@ -57,4 +58,19 @@ int max_subarray2(int array[])
     } 
     
     return max;
+}
+
+/**
+ * 线性时间求解
+ */
+int max_subarray3(int array[])
+{
+    int max = 0; sum = 0;
+    for (int i = 0; i < SIZE; ++i) {
+        sum += array[i];
+        if (max < sum)
+            max = sum;
+        if (sum < 0)
+            sum = 0;
+    }
 }
